@@ -1,15 +1,14 @@
-import {View, Text} from 'react-native';
 import React from 'react';
-import {useOrientation} from '@/hooks';
+import {View, Text} from 'react-native';
+import {useOrientation, useTheme} from '@/hooks';
+import {getStyles} from './styles';
 
 const HomePage = () => {
-  const orientation = useOrientation();
-  console.log('orientation: ', orientation);
-  return (
-    <View>
-      <Text>HomePage</Text>
-    </View>
-  );
+  const {ww, wh} = useOrientation();
+  const theme = useTheme();
+  const styles = getStyles(wh, ww, theme);
+
+  return <View style={styles.container}></View>;
 };
 
 export default HomePage;

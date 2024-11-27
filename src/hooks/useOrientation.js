@@ -2,24 +2,19 @@ import {useState, useEffect} from 'react';
 import {Dimensions} from 'react-native';
 
 const useOrientation = () => {
-  const [orientation, setOrientation] = useState(
-    Dimensions.get('window').width > Dimensions.get('window').height
-      ? 'LANDSCAPE'
-      : 'PORTRAIT',
-  );
+  const [wh, setWH] = useState(Dimensions.get('window').height);
+  const [ww, setWW] = useState(Dimensions.get('window').width);
 
   useEffect(() => {
-    const handleOrientationChange = ({window: {width, height}}) => {
-      setOrientation(width > height ? 'LANDSCAPE' : 'PORTRAIT');
+    const handleOrientationChange = () => {
+      setWH(Dimensions.get('window').height);
+      setWW(Dimensions.get('window').width);
     };
 
     Dimensions.addEventListener('change', handleOrientationChange);
-
-    return () =>
-      Dimensions.removeEventListener('change', handleOrientationChange);
   }, []);
 
-  return orientation;
+  return {ww, wh};
 };
 
 export default useOrientation;
