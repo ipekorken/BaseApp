@@ -13,6 +13,8 @@ export const getStyles = (wh, ww, colors, insets) =>
     },
     subContainer: {
       flex: 1,
-      backgroundColor: colors?.background?.secondary,
+      // width: ww * 0.9,
+      // height: wh * 0.8,
+      // backgroundColor: colors?.background?.secondary,
     },
   });

@@ -6,7 +6,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const Wrapper = ({children, wrapperType}) => {
-  // wrapperType => keyboard, scroll, null
+  // wrapperType => keyboard, scroll, normal
   const {ww, wh} = useOrientation();
   const colors = useTheme();
   const insets = useSafeAreaInsets();
@@ -30,7 +30,7 @@ const Wrapper = ({children, wrapperType}) => {
     );
   };
 
-  const Wrapper = () => {
+  const NormalWrapper = () => {
     return (
       <View style={styles.container}>
         <View style={styles.subContainer}>{children}</View>
@@ -43,7 +43,7 @@ const Wrapper = ({children, wrapperType}) => {
   ) : wrapperType == 'scroll' ? (
     <ScrollWrapper />
   ) : (
-    <Wrapper />
+    <NormalWrapper />
   );
 };
 
