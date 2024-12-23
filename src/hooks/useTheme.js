@@ -23,6 +23,14 @@ const useTheme = () => {
       primary: '#D6D6D6', // Genel sınır rengi
       focus: '#007BFF', // Odaklanmış elemanların sınır rengi
     },
+    alert: {
+      label: '#000000',
+      card: '#F5F5F5',
+      overlay: '#E3E3E3',
+      success: '#5cb85c',
+      danger: '#ff4757',
+      warning: '#ffba00',
+    },
   };
 
   const darkTheme = {
@@ -44,6 +52,14 @@ const useTheme = () => {
     border: {
       primary: '#333333', // Genel sınır rengi
       focus: '#1E88E5', // Odaklanmış elemanların sınır rengi
+    },
+    alert: {
+      label: '#FFFFFF',
+      card: '#1F1F1F',
+      overlay: '#333333',
+      success: '#5cb85c',
+      danger: '#ff4757',
+      warning: '#ffba00',
     },
   };
 

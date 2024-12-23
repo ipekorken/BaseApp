@@ -1,14 +1,19 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import {useOrientation, useTheme} from '@/hooks';
 import {getStyles} from './styles';
+import {Wrapper} from '@/components';
 
 const HomePage = () => {
   const {ww, wh} = useOrientation();
-  const theme = useTheme();
-  const styles = getStyles(wh, ww, theme);
+  const colors = useTheme();
+  const styles = getStyles(wh, ww, colors);
 
-  return <View style={styles.container}></View>;
+  return (
+    <Wrapper wrapperType={'scroll'}>
+      <View style={styles.container}></View>
+    </Wrapper>
+  );
 };
 
 export default HomePage;
