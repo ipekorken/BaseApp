@@ -1,4 +1,3 @@
-import HomePageIcon from './icons/HomePageIcon';
-import SettingsPageIcon from './icons/SettingsPageIcon';
+import MaterialIcon from './icons/MaterialIcon';
 
-export {HomePageIcon, SettingsPageIcon};
+export {MaterialIcon};

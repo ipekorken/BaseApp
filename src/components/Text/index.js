@@ -3,11 +3,27 @@ import React from 'react';
 import {useOrientation, useTheme} from '@/hooks';
 import {getStyles} from './styles';
 
-const CustomText = ({text, textType}) => {
-  // textType => title, subTitle, text
-  const {ww, wh} = useOrientation();
+const CustomText = ({
+  text,
+  textType,
+  bg,
+  mt,
+  mb,
+  ml,
+  mr,
+  pt,
+  pb,
+  pl,
+  pr,
+  color,
+  fs,
+  fw,
+  fstyle,
+}) => {
+  // textType => title, subTitle, text, editable
+  const {ww, wh, isPortrait} = useOrientation();
   const colors = useTheme();
-  const styles = getStyles(wh, ww, colors);
+  const styles = getStyles(wh, ww, isPortrait, colors);
 
   const TitleText = () => {
     return (
@@ -33,12 +49,42 @@ const CustomText = ({text, textType}) => {
     );
   };
 
+  const EditableText = () => {
+    return (
+      <View
+        style={[
+          styles.editableTextView,
+          {
+            backgroundColor: bg,
+            marginTop: mt,
+            marginBottom: mb,
+            marginLeft: ml,
+            marginRight: mr,
+            paddingTop: pt,
+            paddingBottom: pb,
+            paddingLeft: pl,
+            paddingRight: pr,
+          },
+        ]}>
+        <Text
+          style={[
+            styles.editableText,
+            {color: color, fontSize: fs, fontWeight: fw, fontStyle: fstyle},
+          ]}>
+          {text}
+        </Text>
+      </View>
+    );
+  };
+
   return textType == 'title' ? (
     <TitleText />
   ) : textType == 'subTitle' ? (
     <SubTitleText />
-  ) : (
+  ) : textType == 'normal' ? (
     <NormalText />
+  ) : (
+    <EditableText />
   );
 };
 
